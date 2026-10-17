@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Учебный интернет-магазин</title>
+  <meta name="description" content="Главная страница учебного интернет-магазина.">
+  <title>Главная – Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
@@ -14,9 +15,11 @@
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li><a href="index.html">Главная</a></li>
-          <li><a href="#popular">Популярные товары</a></li>
-          <li><a href="#advantages">Преимущества</a></li>
-          <li><a href="#contacts">Контакты</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+          <li><a href="index.html#advantages">Преимущества</a></li>
+          <li><a href="index.html#popular">Популярные товары</a></li>
+          <li><a href="index.html#contacts">Обратная связь</a></li>
         </ul>
       </nav>
     </div>
@@ -83,6 +86,7 @@
     <p>Дисциплина: фронтенд и бэкенд разработка</p>
   </footer>
 
+  <!-- Модальное окно (остается без изменений) -->
   <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
     <h2 id="order-dialog-title">Оформление заявки</h2>
     <form class="order-form" id="order-form" action="#" method="post" novalidate>
@@ -92,23 +96,19 @@
         <label for="order-name">Имя</label>
         <input id="order-name" name="name" type="text" placeholder="Введите ваше имя" minlength="2" autocomplete="given-name" required>
       </div>
-
       <div class="form-field">
         <label for="order-email">E-mail</label>
         <input id="order-email" name="email" type="email" placeholder="example@mail.ru" autocomplete="email" required>
       </div>
-
       <div class="form-field">
         <label for="order-phone">Телефон</label>
         <input id="order-phone" name="phone" type="tel" inputmode="tel" placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" required>
         <small>Формат: +7 (900) 000-00-00</small>
       </div>
-
       <div class="form-field">
         <label for="order-date">Дата связи</label>
         <input id="order-date" name="date" type="date">
       </div>
-
       <div class="form-field">
         <label for="order-topic">Тема заявки</label>
         <select id="order-topic" name="topic" required>
@@ -118,19 +118,16 @@
           <option value="delivery">Доставка</option>
         </select>
       </div>
-
       <div class="form-field">
         <label for="order-comment">Комментарий</label>
         <textarea id="order-comment" name="comment" rows="4" placeholder="Укажите дополнительную информацию"></textarea>
       </div>
-
       <div class="form-field form-field--checkbox">
         <label>
           <input id="order-agreement" name="agreement" type="checkbox" required>
           Я согласен на обработку данных
         </label>
       </div>
-
       <div class="form-actions">
         <button type="button" id="close-order-dialog" class="button button--secondary">Закрыть</button>
         <button type="submit" class="button">Отправить заявку</button>
