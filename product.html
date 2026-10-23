@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Страница товара: Черный чай Эрл Грей. Чайная Лавка.">
-  <title>Черный чай «Эрл Грей» – Чайная Лавка</title>
+  <meta name="description" content="Страница товара. Чайная Лавка.">
+  <title>Товар – Чайная Лавка</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -26,19 +26,20 @@
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <a class="breadcrumbs__link" href="index.html">Главная</a>
       <a class="breadcrumbs__link" href="catalog.html">Каталог</a>
-      <span class="breadcrumbs__current">Черный чай «Эрл Грей»</span>
+      <span class="breadcrumbs__current" id="crumb-name">Черный чай «Эрл Грей»</span>
     </nav>
 
     <section class="section">
-      <h1 class="section__title">Черный чай «Эрл Грей»</h1>
+      <h1 class="section__title" id="product-title">Черный чай «Эрл Грей»</h1>
       
       <div class="product-detail">
         <div class="product-detail__image">
-          <img src="images/tea-black.jpg" alt="Черный чай Эрл Грей" style="width: 100%; border-radius: var(--radius-md);">
+          <img src="images/tea-black.jpg" alt="Чай" style="width: 100%; border-radius: var(--radius-md);">
+        </div>
         
         <div class="product-detail__info">
           <span class="product-card__badge product-card__badge--hit" style="position: static; display: inline-block; margin-bottom: 16px;">Хит продаж</span>
-          <p class="product-detail__price">Цена: 650 руб.</p>
+          <p class="product-detail__price" id="product-price">Цена: 650 руб.</p>
           <p class="product-detail__description">
             Классический черный чай с добавлением натурального масла бергамота. Обладает ярким, терпким вкусом и цитрусовым ароматом. Отлично подходит для утреннего пробуждения и бодрости на весь день.
           </p>
@@ -60,19 +61,11 @@
         <tbody>
           <tr>
             <td>Тип чая</td>
-            <td>Черный</td>
+            <td id="product-type">Черный</td>
           </tr>
           <tr>
             <td>Вес упаковки</td>
             <td>100 г</td>
-          </tr>
-          <tr>
-            <td>Родина чая</td>
-            <td>Индия (Ассам)</td>
-          </tr>
-          <tr>
-            <td>Добавки</td>
-            <td>Масло бергамота, лепестки василька</td>
           </tr>
           <tr>
             <td>Наличие</td>
@@ -87,5 +80,34 @@
     <p class="site-footer__text">&copy; 2026 Чайная Лавка. Все права защищены.</p>
     <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
   </footer>
+
+  <!-- Скрипт для подстановки названия, цены и типа чая -->
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+    const price = urlParams.get('price');
+
+    if (name) {
+      document.getElementById('product-title').textContent = name;
+      document.getElementById('crumb-name').textContent = name;
+      
+      // Меняем картинку в зависимости от названия
+      const img = document.querySelector('.product-detail__image img');
+      if (name.includes('Эрл Грей')) {
+        img.src = 'images/tea-black.jpg';
+        document.getElementById('product-type').textContent = 'Черный';
+      } else if (name.includes('Сенча')) {
+        img.src = 'images/tea-green.jpg';
+        document.getElementById('product-type').textContent = 'Зеленый';
+      } else if (name.includes('Уют')) {
+        img.src = 'images/tea-herbal.jpg';
+        document.getElementById('product-type').textContent = 'Травяной';
+      }
+    }
+    
+    if (price) {
+      document.getElementById('product-price').textContent = 'Цена: ' + price + ' руб.';
+    }
+  </script>
 </body>
 </html>
