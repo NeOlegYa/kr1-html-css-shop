@@ -3,22 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Каталог товаров учебного интернет-магазина.">
-  <title>Каталог товаров – Учебный интернет-магазин</title>
+  <meta name="description" content="Каталог элитного чая. Чайная Лавка.">
+  <title>Каталог чая – Чайная Лавка</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">ShopProject</a>
+      <a class="site-header__logo" href="index.html">TeaHouse</a>
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="order.html">Заявка</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="index.html#advantages">Преимущества</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="index.html#contacts">Обратная связь</a></li>
         </ul>
       </nav>
     </div>
@@ -31,27 +29,27 @@
     </nav>
 
     <section class="section">
-      <h1 class="section__title">Каталог товаров</h1>
+      <h1 class="section__title">Каталог чая</h1>
       <p class="section__text">
-        На этой странице представлен учебный каталог товаров.
-        В дальнейшем здесь будут добавлены фильтры, сортировка и более подробные карточки.
+        На этой странице представлен наш ассортимент. Выберите чай по вкусу, и мы с радостью доставим его вам.
       </p>
     </section>
 
     <section class="catalog-layout">
+      <!-- Блок фильтров -->
       <aside class="catalog-filters">
         <h2 class="catalog-filters__title">Фильтры</h2>
         <form class="filters-form" action="#" method="get">
           <fieldset class="filters-form__group">
-            <legend class="filters-form__legend">Категория</legend>
+            <legend class="filters-form__legend">Тип чая</legend>
             <label class="filters-form__label">
-              <input type="checkbox" name="category" value="all"> Все товары
+              <input type="checkbox" name="category" value="black"> Черный
             </label>
             <label class="filters-form__label">
-              <input type="checkbox" name="category" value="popular"> Популярные
+              <input type="checkbox" name="category" value="green"> Зеленый
             </label>
             <label class="filters-form__label">
-              <input type="checkbox" name="category" value="new"> Новинки
+              <input type="checkbox" name="category" value="herbal"> Травяной
             </label>
           </fieldset>
 
@@ -68,29 +66,39 @@
         </form>
       </aside>
 
+      <!-- Сетка товаров -->
       <section class="catalog-products">
-        <h2 class="catalog-products__title">Список товаров</h2>
+        <h2 class="catalog-products__title">Список сортов</h2>
         
         <div class="products-grid">
-          <article class="product-card">
-            <h3 class="product-card__title">Товар 1</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 1000 руб.</p>
-            <a class="button button--primary" href="index.html#popular">Подробнее</a>
+          <!-- Товар 1 -->
+          <article class="product-card product-card--featured">
+            <span class="product-card__badge product-card__badge--hit">Хит</span>
+            <img src="images/tea-black.jpg" alt="Черный чай Эрл Грей" class="product-card__image">
+            <h3 class="product-card__title">Черный чай «Эрл Грей»</h3>
+            <p class="product-card__description">Классический черный чай с нотками бергамота.</p>
+            <p class="product-card__price">Цена: 650 руб.</p>
+            <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
+          <!-- Товар 2 -->
           <article class="product-card">
-            <h3 class="product-card__title">Товар 2</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 1500 руб.</p>
-            <a class="button button--primary" href="index.html#popular">Подробнее</a>
+            <span class="product-card__badge product-card__badge--new">Новинка</span>
+            <img src="images/tea-green.jpg" alt="Зеленый чай Сенча" class="product-card__image">
+            <h3 class="product-card__title">Зеленый чай «Сенча»</h3>
+            <p class="product-card__description">Японский зеленый чай с травянистым вкусом.</p>
+            <p class="product-card__price">Цена: 800 руб.</p>
+            <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
-          <article class="product-card">
-            <h3 class="product-card__title">Товар 3</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 2000 руб.</p>
-            <a class="button button--primary" href="index.html#popular">Подробнее</a>
+          <!-- Товар 3 -->
+          <article class="product-card product-card--discount">
+            <span class="product-card__badge product-card__badge--discount">Скидка 15%</span>
+            <img src="images/tea-herbal.jpg" alt="Травяной сбор Уют" class="product-card__image">
+            <h3 class="product-card__title">Травяной сбор «Уют»</h3>
+            <p class="product-card__description">Ромашка, мята и липа для спокойного вечера.</p>
+            <p class="product-card__price">Цена: 450 руб.</p>
+            <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
         </div>
       </section>
@@ -98,7 +106,7 @@
   </main>
 
   <footer class="site-footer">
-    <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p class="site-footer__text">&copy; 2026 Чайная Лавка. Все права защищены.</p>
     <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
   </footer>
 </body>
